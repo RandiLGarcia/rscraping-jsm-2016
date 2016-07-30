@@ -218,7 +218,7 @@ browseURL("http://selectorgadget.com/")
 # and follow the advice below: "drag this link to your bookmark bar: >>SelectorGadget>> (updated August 7, 2013)"
 
 ## SelectorGadget is magic. Proof:
-browseurl("https://www.buzzfeed.com/?country=us")
+browseURL("https://www.buzzfeed.com/?country=us")
 
 
 #######################
@@ -229,7 +229,7 @@ browseurl("https://www.buzzfeed.com/?country=us")
 # 2. use rvest to scrape these names!
 
 
-
+.small-meta__item:nth-child(1) a
 
 ## dealing with multiple pages ----------
 
@@ -262,7 +262,7 @@ dir.create(folder)
 for (i in 1:length(urls_list)) {
   if (!file.exists(paste0(folder, names[i]))) {
     download.file(urls_list[i], destfile = paste0(folder, "/", names[i]))
-    Sys.sleep(runif(1, 0, 1))
+    Sys.sleep(runif(1, 0, 1))##rlg:taking pauses between downloads to fly under the radar
   }
 }
 

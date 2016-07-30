@@ -1,0 +1,590 @@
+
+ <table width="100%">
+ <tr>
+  <td style="background-color: #000000;">
+<div style="display:block; text-align:left; float:left;margin-left:1em"><font size="1" color="#FFFFFF">Published by the Foundation for Open Access Statistics</font></div>
+<div style="display:block; text-align:right;margin-right:1em"><font size="1" color="#FFFFFF">Editors-in-chief: Bettina Grün, Edzer Pebesma & Achim Zeileis &emsp;&emsp; ISSN 1548-7660; CODEN JSSOBK</font></div>
+   </td>
+ </tr>
+</table>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Journal of Statistical Software</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="generator" content=" 2.4.8.0" />
+	
+	<link rel="icon" href="https://www.jstatsoft.org/public/journals/1/journalFavicon_en_US.gif" type="cannot open (No such file or directory)" />	<link rel="stylesheet" href="https://www.jstatsoft.org/lib/pkp/styles/pkp.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.jstatsoft.org/lib/pkp/styles/common.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.jstatsoft.org/styles/common.css" type="text/css" />
+	<link rel="stylesheet" href="https://www.jstatsoft.org/styles/compiled.css" type="text/css" />
+
+	<!-- Base Jquery -->
+	<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			<!--
+			// Provide a local fallback if the CDN cannot be reached
+			if (typeof google == 'undefined') {
+				document.write(unescape("%3Cscript src='https://www.jstatsoft.org/lib/pkp/js/lib/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+				document.write(unescape("%3Cscript src='https://www.jstatsoft.org/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js' type='text/javascript'%3E%3C/script%3E"));
+			} else {
+				google.load("jquery", "1.4.4");
+				google.load("jqueryui", "1.8.6");
+			}
+			// -->
+		</script>
+	
+	
+	
+	<link rel="stylesheet" href="https://www.jstatsoft.org/styles/sidebar.css" type="text/css" />		<link rel="stylesheet" href="https://www.jstatsoft.org/styles/rightSidebar.css" type="text/css" />	
+			<link rel="stylesheet" href="https://www.jstatsoft.org/public/site/sitestyle.css" type="text/css" />
+			<link rel="stylesheet" href="https://www.jstatsoft.org/public/journals/1/journalStyleSheet.css" type="text/css" />
+			<link rel="stylesheet" href="https://www.jstatsoft.org/plugins/generic/pln/css/pln.css" type="text/css" />
+			<link rel="stylesheet" href="https://www.jstatsoft.org/plugins/blocks/languageToggle/styles/languageToggle.css" type="text/css" />
+	
+	<!-- Default global locale keys for JavaScript -->
+	
+<script type="text/javascript">
+	jQuery.pkp = jQuery.pkp || { };
+	jQuery.pkp.locale = { };
+			
+				jQuery.pkp.locale.form_dataHasChanged = 'The data on this form has changed. Continue anyway?';
+	</script>
+	<!-- Compiled scripts -->
+			
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/lib/jquery/plugins/jquery.tag-it.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/lib/jquery/plugins/jquery.cookie.js"></script>
+
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/functions/fontController.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/functions/general.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/functions/jqueryValidatorI18n.js"></script>
+
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/classes/Helper.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/classes/ObjectProxy.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/classes/Handler.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/classes/linkAction/LinkActionRequest.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/classes/features/Feature.js"></script>
+
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/controllers/SiteHandler.js"></script><!-- Included only for namespace definition -->
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/controllers/UrlInDivHandler.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/controllers/AutocompleteHandler.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/controllers/ExtrasOnDemandHandler.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/controllers/form/FormHandler.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/controllers/form/AjaxFormHandler.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/controllers/form/ClientFormHandler.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/controllers/grid/GridHandler.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/controllers/linkAction/LinkActionHandler.js"></script>
+
+<script type="text/javascript" src="https://www.jstatsoft.org/js/pages/search/SearchFormHandler.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/js/statistics/ReportGeneratorFormHandler.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/plugins/generic/lucene/js/LuceneAutocompleteHandler.js"></script>
+
+<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/lib/jquery/plugins/jquery.pkp.js"></script>
+
+<script type="text/javascript" src="https://www.jstatsoft.org/cufon/cufon-yui.js"></script>
+<script type="text/javascript" src="https://www.jstatsoft.org/cufon/TeXGyreChorus_italic_500.font.js"></script>
+<script type="text/javascript">
+   Cufon.replace("h1");
+</script>	
+	<!-- Form validation -->
+	<script type="text/javascript" src="https://www.jstatsoft.org/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
+	<script type="text/javascript">
+		<!--
+		// initialise plugins
+		
+		$(function(){
+			jqueryValidatorI18n("https://www.jstatsoft.org", "en_US"); // include the appropriate validation localization
+			
+			$(".tagit").live('click', function() {
+				$(this).find('input').focus();
+			});
+		});
+		// -->
+		
+	</script>
+
+		
+	<link rel="alternate" type="application/atom+xml" title="Journal of Statistical Software (atom+xml)" href="https://www.jstatsoft.org/index.php/jss/gateway/plugin/WebFeedGatewayPlugin/atom" />
+	<link rel="alternate" type="application/rdf+xml" title="Journal of Statistical Software (rdf+xml)" href="https://www.jstatsoft.org/index.php/jss/gateway/plugin/WebFeedGatewayPlugin/rss" />
+	<link rel="alternate" type="application/rss+xml" title="Journal of Statistical Software (rss+xml)" href="https://www.jstatsoft.org/index.php/jss/gateway/plugin/WebFeedGatewayPlugin/rss2" />
+</head>
+
+<body id="pkp-common-openJournalSystems">
+
+
+<div id="container">
+<div id="header">
+<div id="headerTitle">
+<h1>
+	<img src="https://www.jstatsoft.org/public/journals/1/homeHeaderTitleImage_en_US.png" width="731" height="50" alt="Journal of Statistical Software" />
+</h1>
+</div>
+</div>
+
+<div id="body">
+
+	<div id="sidebar">
+							<div id="rightSidebar">
+				
+
+<div class="block" id="sidebarDevelopedBy">
+	<a class="blockTitle" href="http://pkp.sfu.ca/ojs/" id="developedBy">Open Journal Systems</a>
+</div><div class="block" id="sidebarHelp">
+	<a class="blockTitle" href="javascript:openHelp('https://www.jstatsoft.org/index.php/jss/help/view/user/topic/000001')">Journal Help</a>
+</div><div class="block" id="sidebarUser">
+			<span class="blockTitle">User</span>
+	
+												<form method="post" action="https://www.jstatsoft.org/index.php/jss/login/signIn">
+					<table>
+						<tr>
+							<td><label for="sidebar-username">Username</label></td>
+							<td><input type="text" id="sidebar-username" name="username" value="" size="12" maxlength="32" class="textField" /></td>
+						</tr>
+						<tr>
+							<td><label for="sidebar-password">Password</label></td>
+							<td><input type="password" id="sidebar-password" name="password" value="" size="12" class="textField" /></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="checkbox" id="remember" name="remember" value="1" /> <label for="remember">Remember me</label></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="submit" value="Login" class="button" /></td>
+						</tr>
+					</table>
+				</form>
+						</div><div class="block custom" id="customblock-FeedsBlock">
+	<div><span class="blockTitle">Feeds</span>
+<ul>
+<li><a href="/rss">RSS</a></li>
+<li><a href="/atom">Atom</a></li>
+</ul>
+</div>
+</div>	 <div class="block" id="notification">
+	<span class="blockTitle">Notifications</span>
+	<ul>
+					<li><a href="https://www.jstatsoft.org/index.php/jss/notification">View</a></li>
+			<li><a href="https://www.jstatsoft.org/index.php/jss/notification/subscribeMailList">Subscribe</a></li>
+			</ul>
+</div>
+
+<div class="block" id="sidebarNavigation">
+	<span class="blockTitle">Journal Content</span>
+
+	<form id="simpleSearchForm" action="https://www.jstatsoft.org/index.php/jss/search/search">
+		<table id="simpleSearchInput">
+			<tr>
+				<td>
+													<label for="simpleQuery">Search <br />
+					<input type="text" id="simpleQuery" name="simpleQuery" size="15" maxlength="255" value="" class="textField" /></label>
+								</td>
+			</tr>
+			<tr>
+				<td><label for="searchField">
+				Search Scope
+				<br />
+				<select id="searchField" name="searchField" size="1" class="selectMenu">
+					<option label="All" value="query">All</option>
+<option label="Authors" value="authors">Authors</option>
+<option label="Title" value="title">Title</option>
+<option label="Abstract" value="abstract">Abstract</option>
+<option label="Index terms" value="indexTerms">Index terms</option>
+<option label="Full Text" value="galleyFullText">Full Text</option>
+
+				</select></label>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Search" class="button" /></td>
+			</tr>
+		</table>
+	</form>
+
+	<br />
+
+		<span class="blockSubtitle">Browse</span>
+	<ul>
+		<li><a href="https://www.jstatsoft.org/index.php/jss/issue/archive">By Issue</a></li>
+		<li><a href="https://www.jstatsoft.org/index.php/jss/search/authors">By Author</a></li>
+		<li><a href="https://www.jstatsoft.org/index.php/jss/search/titles">By Title</a></li>
+		
+	</ul>
+	</div>
+
+<!-- Add javascript required for font sizer -->
+<script type="text/javascript">
+	<!--
+	$(function(){
+		fontSize("#sizer", "body", 9, 16, 32, ""); // Initialize the font sizer
+	});
+	// -->
+</script>
+
+<div class="block" id="sidebarFontSize" style="margin-bottom: 4px;">
+	<span class="blockTitle">Font Size</span>
+	<div id="sizer"></div>
+</div>
+<br /><div class="block" id="sidebarInformation">
+	<span class="blockTitle">Information</span>
+	<ul>
+		<li><a href="https://www.jstatsoft.org/index.php/jss/information/readers">For Readers</a></li>		<li><a href="https://www.jstatsoft.org/index.php/jss/information/authors">For Authors</a></li>		<li><a href="https://www.jstatsoft.org/index.php/jss/information/librarians">For Librarians</a></li>	</ul>
+</div>
+
+			</div>
+			</div>
+
+<div id="main">
+<div id="navbar">
+<div style="background-color:#FFFFFF; border-top: 1px black dotted; border-bottom: 1px black dotted;">
+ <table width="100%">
+ <tr>
+  <td style="background-color: #FFFFFF;">
+<div style="display:block; text-align:left; float:left; margin-left:1em"><font size="+1" color="#000000">
+<a href="https://www.jstatsoft.org/index.php/jss/index">Home</a> | 
+<a href="/index.php/jss/information/authors">Instructions for Authors</a> | 
+<a href="/index.php/jss/about/submissions">JSS Style Guide</a> | 
+<a href="/index.php/jss/about/editorialTeam">Editorial Board</a> | 
+					
+							<a href="https://www.jstatsoft.org/index.php/jss/user/register">Register</a>
+					</font></div>
+<div style="display:block; text-align:right;margin-right:1em"><font size="+1" color="#000000">
+					<a href="https://www.jstatsoft.org/index.php/jss/issue/current">Current Volume</a> | 
+			<a href="https://www.jstatsoft.org/index.php/jss/issue/archive">Archives</a> | 
+							<a href="https://www.jstatsoft.org/index.php/jss/search">Search</a>
+		</font></div>
+   </td>
+ </tr>
+</table>
+</div>
+</div>
+
+<div id="breadcrumb">
+	<a href="https://www.jstatsoft.org/index.php/jss/index">Home</a> &gt;
+			<a href="https://www.jstatsoft.org/index.php/jss/index" class="current">Vol 71 (2016)</a></div>
+
+<div id="content">
+
+
+
+
+
+
+
+
+<div id="home-columns" class="right">
+   <h3>Recent Publications</h3>
+   	<div id="issueDescription"></div>
+		<h4 class="tocSectionTitle">Articles</h4>
+	
+<table class="tocArticle" width="100%">
+<tr valign="top">
+		
+
+				
+					
+	<td class="tocTitle"><a href="https://www.jstatsoft.org/index.php/jss/article/view/v071i01">gramEvol: Grammatical Evolution in R</a></td>
+	<td class="tocGalleys">
+									<a href="https://www.jstatsoft.org/index.php/jss/article/view/v071i01/v71i01.pdf" class="file">PDF</a>
+													</td>
+</tr>
+<tr>
+	<td class="tocAuthors">
+									Farzad Noorian,							Anthony M. de Silva,							Philip H. W. Leong						</td>
+	</tr>
+</table>
+
+	
+<table class="tocArticle" width="100%">
+<tr valign="top">
+		
+
+				
+					
+	<td class="tocTitle"><a href="https://www.jstatsoft.org/index.php/jss/article/view/v071i02">RProtoBuf: Efficient Cross-Language Data Serialization in R</a></td>
+	<td class="tocGalleys">
+									<a href="https://www.jstatsoft.org/index.php/jss/article/view/v071i02/v71i02.pdf" class="file">PDF</a>
+													</td>
+</tr>
+<tr>
+	<td class="tocAuthors">
+									Dirk Eddelbuettel,							Murray Stokely,							Jeroen Ooms						</td>
+	</tr>
+</table>
+
+	
+<table class="tocArticle" width="100%">
+<tr valign="top">
+		
+
+				
+					
+	<td class="tocTitle"><a href="https://www.jstatsoft.org/index.php/jss/article/view/v071i03">JMFit: A SAS Macro for  Joint Models of Longitudinal and Survival Data</a></td>
+	<td class="tocGalleys">
+									<a href="https://www.jstatsoft.org/index.php/jss/article/view/v071i03/v71i03.pdf" class="file">PDF</a>
+													</td>
+</tr>
+<tr>
+	<td class="tocAuthors">
+									Danjie Zhang,							Ming-Hui Chen,							Joseph G. Ibrahim,							Mark E. Boye,							Wei Shen						</td>
+	</tr>
+</table>
+
+	
+<table class="tocArticle" width="100%">
+<tr valign="top">
+		
+
+				
+					
+	<td class="tocTitle"><a href="https://www.jstatsoft.org/index.php/jss/article/view/v071i04">Software Alchemy: Turning Complex Statistical Computations into Embarrassingly-Parallel Ones</a></td>
+	<td class="tocGalleys">
+									<a href="https://www.jstatsoft.org/index.php/jss/article/view/v071i04/v71i04.pdf" class="file">PDF</a>
+													</td>
+</tr>
+<tr>
+	<td class="tocAuthors">
+									Norman Matloff						</td>
+	</tr>
+</table>
+
+	
+<table class="tocArticle" width="100%">
+<tr valign="top">
+		
+
+				
+					
+	<td class="tocTitle"><a href="https://www.jstatsoft.org/index.php/jss/article/view/v071i05">Generating Adaptive and Non-Adaptive Test Interfaces for Multidimensional Item Response Theory Applications</a></td>
+	<td class="tocGalleys">
+									<a href="https://www.jstatsoft.org/index.php/jss/article/view/v071i05/v71i05.pdf" class="file">PDF</a>
+													</td>
+</tr>
+<tr>
+	<td class="tocAuthors">
+									R. Philip Chalmers						</td>
+	</tr>
+</table>
+
+
+<div class="separator"></div>
+<h4 class="tocSectionTitle">Code Snippets</h4>
+	
+<table class="tocArticle" width="100%">
+<tr valign="top">
+		
+
+				
+					
+	<td class="tocTitle"><a href="https://www.jstatsoft.org/index.php/jss/article/view/v071c01">LARF: Instrumental Variable Estimation of Causal Effects through Local Average Response Functions</a></td>
+	<td class="tocGalleys">
+									<a href="https://www.jstatsoft.org/index.php/jss/article/view/v071c01/v71c01.pdf" class="file">PDF</a>
+													</td>
+</tr>
+<tr>
+	<td class="tocAuthors">
+									Weihua An,							Xuefu Wang						</td>
+	</tr>
+</table>
+
+	
+<table class="tocArticle" width="100%">
+<tr valign="top">
+		
+
+				
+					
+	<td class="tocTitle"><a href="https://www.jstatsoft.org/index.php/jss/article/view/v071c02">SNPMClust: Bivariate Gaussian Genotype Clustering and Calling for Illumina Microarrays</a></td>
+	<td class="tocGalleys">
+									<a href="https://www.jstatsoft.org/index.php/jss/article/view/v071c02/v71c02.pdf" class="file">PDF</a>
+													</td>
+</tr>
+<tr>
+	<td class="tocAuthors">
+									Stephen W. Erickson,							Joshua C. Callaway						</td>
+	</tr>
+</table>
+
+
+<div class="separator"></div>
+<h4 class="tocSectionTitle">Book Reviews</h4>
+	
+<table class="tocArticle" width="100%">
+<tr valign="top">
+		
+
+				
+					
+	<td class="tocTitle"><a href="https://www.jstatsoft.org/index.php/jss/article/view/v071b01">Basics of Matrix Algebra for Statistics with R</a></td>
+	<td class="tocGalleys">
+									<a href="https://www.jstatsoft.org/index.php/jss/article/view/v071b01/v71b01.pdf" class="file">PDF</a>
+													</td>
+</tr>
+<tr>
+	<td class="tocAuthors">
+									Abdolvahab Khademi						</td>
+	</tr>
+</table>
+
+	
+<table class="tocArticle" width="100%">
+<tr valign="top">
+		
+
+				
+					
+	<td class="tocTitle"><a href="https://www.jstatsoft.org/index.php/jss/article/view/v071b02">Applied Multivariate Statistics with R</a></td>
+	<td class="tocGalleys">
+									<a href="https://www.jstatsoft.org/index.php/jss/article/view/v071b02/v71b02.pdf" class="file">PDF</a>
+													</td>
+</tr>
+<tr>
+	<td class="tocAuthors">
+									David W. Zeitler						</td>
+	</tr>
+</table>
+
+	
+<table class="tocArticle" width="100%">
+<tr valign="top">
+		
+
+				
+					
+	<td class="tocTitle"><a href="https://www.jstatsoft.org/index.php/jss/article/view/v071b03">Practical Guide to Logistic Regression</a></td>
+	<td class="tocGalleys">
+									<a href="https://www.jstatsoft.org/index.php/jss/article/view/v071b03/v71b03.pdf" class="file">PDF</a>
+													</td>
+</tr>
+<tr>
+	<td class="tocAuthors">
+									Ulrike Grömping						</td>
+	</tr>
+</table>
+
+
+	
+</div>
+
+<div id="home-columns" class="left">
+      <div id="additionalHomeContent"><p><img style="float: right;" src="/public/site/images/jstatsoft/jsslogo.jpg" alt="JSS logo" width="" height="150" />Established in 1996, the Journal of Statistical Software publishes articles, book reviews, code snippets, and software reviews on the subject of statistical software and algorithms. The contents are freely available on-line. For both articles and code snippets the source code is published along with the paper. Statistical software is the key link between statistical methods and their application in practice. Software that makes this link is the province of the journal, and may be realized as, for instance, tools for large scale computing, database technology, desktop computing, distributed systems, the World Wide Web, reproducible research, archiving and documentation, and embedded systems. We attempt to present research that demonstrates the joint evolution of computational and statistical methods and techniques. Implementations can use languages such as C, C++, S, Fortran, Java, PHP, Python and Ruby or environments such as Mathematica, MATLAB, R, S-PLUS, SAS, Stata, and XLISP-STAT.</p></div>
+         	   	<div id="announcementsHome">
+   		<h3>Announcements</h3>
+   		<table class="announcements">
+	<tr>
+		<td colspan="2" class="headseparator">&nbsp;</td>
+	</tr>
+
+
+			<tr class="title">
+					<td class="title"><b>New JSS server</b></td>
+					<td class="more">&nbsp;</td>
+		</tr>
+		<tr class="description">
+			<td class="description">The <em>Journal of Statistical Software</em> moved to a new server based on <em>Open Journal Systems</em> (OJS, <a title="OJS" href="http://pkp.sfu.ca/ojs/" target="_blank">http://pkp.sfu.ca/ojs/</a>) which not only hosts published software/manuscripts but also provides a full editorial system. Thus, all submissions, reviews, etc. can now be made through the new OJS system.<br /><br /></td>
+			<td class="more">&nbsp;</td>
+		</tr>
+		<tr>
+		<td colspan="2" class="separator">&nbsp;</td>
+	</tr>
+	
+			<tr class="title">
+					<td class="title"><b>DOIs for JSS publications</b></td>
+					<td class="more">&nbsp;</td>
+		</tr>
+		<tr class="description">
+			<td class="description">The <em>Journal of Statistical Software</em> now provides DOIs (digital object identifiers, <a title="doi.org/" href="http://www.doi.org/" target="_blank">http://www.doi.org/</a>) for its publications. For example, <a title="doi:10.18637/jss.v063.i01" href="http://dx.doi.org/10.18637/jss.v063.i01" target="_blank">doi:10.18637/jss.v063.i01</a> refers to the introduction to the recent special volume on software for spatial statistics. The DOIs for past publications are listed on the respective web page. Future publications (starting from Volume 67) will also show the DOIs in the PDF manuscripts - and also provide DOIs for the references cited in the manuscripts.<br /><br /></td>
+			<td class="more">&nbsp;</td>
+		</tr>
+		<tr>
+		<td colspan="2" class="separator">&nbsp;</td>
+	</tr>
+	
+			<tr class="title">
+					<td class="title"><b>Special Volume 63</b></td>
+					<td class="more">&nbsp;</td>
+		</tr>
+		<tr class="description">
+			<td class="description">Special volume 63 on <strong>Software for Spatial Statistics</strong>, <em>Editors: Edzer Pebesma, Roger Bivand and Paulo Justiano Ribeiro</em> is <a href="/issue/view/v063">now available</a>.</td>
+			<td class="more">&nbsp;</td>
+		</tr>
+		<tr>
+		<td colspan="2" class="separator">&nbsp;</td>
+	</tr>
+	
+			<tr class="title">
+					<td class="title"><b>Special Volume 60</b></td>
+					<td class="more">&nbsp;</td>
+		</tr>
+		<tr class="description">
+			<td class="description">Special volume 60 on <strong>Optimization</strong>, <em>Editor: Ravi Varadhan</em> is <a href="/issue/view/v060">now available</a>.</td>
+			<td class="more">&nbsp;</td>
+		</tr>
+		<tr>
+		<td colspan="2" class="endseparator">&nbsp;</td>
+	</tr>
+	
+</table>	
+   		<table class="announcementsMore">
+   			<tr>
+   				<td><a href="https://www.jstatsoft.org/index.php/jss/announcement">More Announcements...</a></td>
+   			</tr>
+   		</table>
+   	</div>
+   
+   <div>
+      <h3>Support</h3><p>
+      <table width="100%">
+         <tr>
+            <td style="vertical-align: top;">
+               <a href="http://www.foastat.org/">
+                  <img style="float: left; width: 100px; margin: 3px 5px 8px 0;" src="/public/journals/1/foastat.logo.png" alt="" />
+               </a>
+            </td>
+            <td>
+               As a matter of principle, <b>JSS charges no author fees or subscription fees</b>.
+               Our editors, reviewers, and programmers are volunteers.  UCLA Statistics
+               and Universit&auml;t Innsbruck
+               contribute support staff, website maintenance, website hosting, and some
+               graduate student support.
+               Because of our success and growth we do need more resources in the future.
+               You can support us by becoming a member of the
+               <a target="_new" href="http://www.foastat.org">Foundation for Open Access Statistics</a> at
+               <a target="_new" href="http://www.foastat.org">www.foastat.org</a>, and by contributing on their
+               <a target="_new" href="http://www.foastat.org/donate.html">donation page</a>.</p>
+            </td>
+         </tr>
+      </table>
+   </div>
+   
+   <div>
+      <h3>Links</h3>
+      <ul id="links-section">
+         <li><a href="http://www.facebook.com/jstatsoft">JSS @ Facebook</a></li>
+         <li><a href="https://twitter.com/jstatsoft">JSS @ Twitter</a></li>
+         <li><a href="http://www.amstat.org/publications/index.cfm?fuseaction=main">American Statistical Association Publications</a></li>
+         <li><a href="http://www.tandfonline.com/toc/ucgs20/current">Journal of Computational and Graphical Statistics</a></li>
+         <li><a href="http://www.statindex.org/">Current Index to Statistics</a></li>
+         <li><a href="http://www.scimagojr.com/journalsearch.php?q=15487660&amp;tip=iss&amp;clean=0">JSS in SCImago Journal Database</a></li>
+         <li><a href="http://www.doaj.org/doaj?func=openurl&amp;issn=15487660&amp;genre=journal">JSS in Directory of Open Access Journals</a></li>
+         <li><a href="ftp://ftp.math.utah.edu/pub/tex/bib/jstatsoft.bib">JSS BibTeX Database (1996-2015)</a></li>
+         <li><a href="http://ideas.repec.org/s/jss/jstsof.html">JSS in IDEAS</a></li>
+      </ul>
+   </div>
+</div>
+	
+	
+	<br /><br />
+	<div id="pageFooter">ISSN: 1548-7660</div>
+</div><!-- content -->
+</div><!-- main -->
+</div><!-- body -->
+
+
+
+</div><!-- container -->
+</body>
+</html>
