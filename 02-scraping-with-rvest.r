@@ -124,7 +124,7 @@ as_list(url_parsed)
 headings_nodes <- html_nodes(url_parsed, css = ".lede__link")
 # 4. extract content from nodes
 headings <- html_text(headings_nodes)
-headings <- str_replace_all(headings, "\\n", "") %>% str_trim()
+
 
 
 #######################
@@ -134,7 +134,38 @@ headings <- str_replace_all(headings, "\\n", "") %>% str_trim()
 # 1. revisit the jstatsoft.org website from above and use rvest to extract the names!
 # 2. bonus: try and extract the full lines including the affiliation and count how many of the editors are at a statistics or mathematics department or institution!
 
+# rlg:1. specify URL
+url <- "https://www.jstatsoft.org/about/editorialTeam"
+# rlg:2. download static HTML behind the URL and parse it into an XML file
+url_parsed <- read_html(url)
+# rlg:3. extract specific nodes with CSS (or XPath)
+headings_nodes2 <- html_nodes(url_parsed, css = ".member a")
+# rlg:4. extract content from nodes
+headings2 <- html_text(headings_nodes2)
 
+#bonus:
+url <- "https://www.jstatsoft.org/about/editorialTeam"
+url_parsed <- read_html(url)
+headings_nodes3 <- html_nodes(url_parsed, css = ".member li")
+headings3 <- html_text(headings_nodes3)
+affilstats <- str_extract(headings3, "Statistics")
+affilmath <- str_extract(headings3, "Mathematics")
+affilpsych <- str_extract(headings3, "Psychology")
+length(affilstats[!is.na(affilstats)])
+length(affilmath[!is.na(affilmath)])
+length(affilpsych[!is.na(affilpsych)])
+length(affilstats[!is.na(affilstats)&!is.na(affilmath)])
+
+##rlg:trying to get mosaic to do a basic tally, but the data is in a "matrix" 
+library(mosaic)
+dat <- cbind(affilstats, affilmath, affilpsych)
+tally(~as.factor(affilmath)|as.factor(affilstats), data=as.data.frame(as.table(dat)))
+
+###rlg: example from stack overflow
+data <- c(0.1, 0.2, 0.3, 0.3, 0.4, 0.5)
+dimnames <- list(time=c(0, 0.5, 1), name=c("C_0", "C_1"))
+mat <- matrix(data, ncol=2, nrow=3, dimnames=dimnames)
+as.data.frame(as.table(mat))
 
 ### extract data from tables --------------
 
@@ -146,7 +177,7 @@ headings <- str_replace_all(headings, "\\n", "") %>% str_trim()
 
 url <- "https://en.wikipedia.org/wiki/Joint_Statistical_Meetings"
 url_parsed <- read_html(url)
-tables <- html_table(url_parsed, fill = TRUE)
+tables <- html_table(url_parsed, fill = TRUE)##rlg: function html_table will find tables
 tables
 meetings <- tables[[2]]
 class(meetings)
@@ -161,10 +192,20 @@ table(meetings$Location) %>% sort()
 #######################
 
 # 1. scrape the table tall buildings (300m+) currently under construction from
-browseurl("https://en.wikipedia.org/wiki/List_of_tallest_buildings_in_the_world")
+browseURL("https://en.wikipedia.org/wiki/List_of_tallest_buildings_in_the_world")
+
+url <- "https://en.wikipedia.org/wiki/List_of_tallest_buildings_in_the_world"
+url_parsed <- read_html(url)
+tables <- html_table(url_parsed, fill = TRUE)##rlg: function html_table will find tables
+tables[[7]]
 
 # 2. how many of those buildings are currently built in China? and in which city are most of the tallest buildings currently built?
 
+buildings <- tables[[7]]
+class(buildings)
+head(buildings)
+###rlg: whats the elements of the table buildings ??Country/region??
+table(buildings$??????) %>% sort()
 
 
 ### working with SelectorGadget ----------
