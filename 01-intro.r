@@ -25,7 +25,7 @@ setwd(tempwd)
 
 ## step 1: fetch list of cities with breweries
 url <- "https://www.google.de/?#q=list+breweries+chicago"
-browseURL(url)
+browseURL(url)     ##rlg: accessing webpages--it pops up
 url <- "http://thehopreview.com/blog/chicago-brewery-list"
 content <- read_html(url, encoding = "utf8")
 anchors <- html_nodes(content, css = "#block-yui_3_17_2_8_1438187725105_11398 p")
@@ -39,7 +39,8 @@ breweries <- breweries[-1]
 # geocoding takes a while -> store results in local cache file
 # 2500 requests allowed per day
 
-locations <- str_extract(breweries, "[[:digit:]].+?–")
+##rlg: functions within the stringr package
+locations <- str_extract(breweries, "[[:digit:]].+?–") 
 locations <- str_replace(locations, "–", ", Chicago, IL")
 locations <- locations[!is.na(locations)]
 
