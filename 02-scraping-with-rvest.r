@@ -85,6 +85,9 @@ browseURL("https://www.jstatsoft.org/about/editorialTeam")
   # a) which CSS identifiers can be used to describe all names of the editorial team?
   # b) write a corresponding CSS selector that targets them!
 
+##rlg: answer
+css = ".member a"
+
 
 ## a quick primer to XPath ------------------
 

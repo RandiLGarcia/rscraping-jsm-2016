@@ -45,7 +45,7 @@ locations <- str_replace(locations, "–", ", Chicago, IL")
 locations <- locations[!is.na(locations)]
 
 if (!file.exists("breweries_geo.RData")){
-  pos <- geocode(locations, source = "google")
+  pos <- geocode(locations, source = "google") ##rlg: geocode from ggmap package, querying google maps api
   geocodeQueryCheck()
   save(pos, file="breweries_geo.RData")
 } else {
@@ -56,7 +56,7 @@ head(pos)
 
 ## step 3: plot breweries of Chicago
 brewery_map <- get_map(location=c(lon=mean(pos$lon), lat=mean(pos$lat)), zoom="auto", maptype="hybrid")
-p <- ggmap(brewery_map) + geom_point(data=pos, aes(x=lon, y=lat), col="red", size=3)
+p <- ggmap(brewery_map) + geom_point(data=pos, aes(x=lon, y=lat), col="red", size=2)
 p
 
 ## return to base working drive
@@ -94,7 +94,8 @@ length(anchors) # probably too many?
 anchors <- html_nodes(html, xpath="//ul/li/a[1]")
 links <- html_attr(anchors, "href")
 
-links_iffer <-
+##rlg: getting list of links ot eat statistician's page
+links_iffer <-  
   seq_along(links) >=
   seq_along(links)[str_detect(links, "Odd_Aalen")] &
   seq_along(links) <=
@@ -136,7 +137,7 @@ for (i in seq_along(HTML)) {
   pslinks <- html_attr(
     html_nodes(HTML[[i]], xpath="//p//a"), # note: only look for links in p sections; otherwise too many links collected
     "href")
-  links_in_pslinks <- seq_along(links)[links %in% pslinks]
+  links_in_pslinks <- seq_along(links)[links %in% pslinks] ##rlg: loook to see if links match
   links_in_pslinks <- links_in_pslinks[links_in_pslinks!=i]
   connections <- rbind(
     connections,
