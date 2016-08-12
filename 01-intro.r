@@ -78,7 +78,7 @@ setwd(wd)
 # set temporary working directory
 tempwd <- ("data/wikipediaStatisticians")
 dir.create(tempwd)
-setwd(tempwd)
+setwd(tempwd)###for some reason I could not change the working directory, so it saved to the breweries folder...
 
 
 ## step 1: inspect page

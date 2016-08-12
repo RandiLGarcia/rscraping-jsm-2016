@@ -36,7 +36,7 @@ browseURL("https://www.mozilla.org/en-US/firefox/new/")
 # install dev version of RSelenium
 devtools::install_github("ropensci/RSelenium")
 
-
+###r;g: robots package allows to assess robots.txt pages
 
 ## example --------------------------
 

@@ -57,7 +57,25 @@ polsci_articles <- arxiv_search('abs:"political" AND submittedDate:[2016 TO 2017
 # 1. familiarize yourself with the pageviews package! what functions does it provide and what do they do?
 # 2. use the package to fetch page view statistics for the articles about Donald Trump and Hillary Clinton on the English Wikipedia, and plot them against each other in a time series graph!
 
+ls("package:pageviews")
+help("pageviews")
+?article_pageviews
+?project_pageviews
+obama_pageviews <- article_pageviews(article = "Barack_Obama")
+obama_pageviews
+clinton_pageviews <- article_pageviews(article = "Hillary_Clinton", user_type = "user", start = "2016010100", end = "20160720")
+trump_pageviews <- article_pageviews(article = "Donald_Trump", user_type = "user", start = "2016010100", end = "20160720")
+head(clinton_pageviews)
+trump_pageviews
 
+
+###rlg: Simon's soutions
+trump_views <- article_pageviews(project = "en.wikipedia", article = "Donald Trump", user_type = "user", start = "2016010100", end = "20160720")
+head(trump_views)
+clinton_views <- article_pageviews(project = "en.wikipedia", article = "Hillary Clinton", user_type = "user", start = "2016010100", end = "20160720")
+
+plot(ymd_h(trump_views$timestamp), trump_views$views, col = "red", type = "l")
+lines(ymd_h(clinton_views$timestamp), clinton_views$views, col = "blue")
 
 
 ## accessing APIs from scratch ---------
@@ -110,7 +128,12 @@ browseURL("http://openweathermap.org/current")
 browseURL("http://openweathermap.org/api")
 # 3. make a call to the API to find out the current weather conditions in Chicago!
 
-
+city <- "Chicago" %>% URLencode()
+endpoint <- "api.openweathermap.org/data/2.5/weather?"
+url <- paste0(endpoint, "q=", city, "&APPID=8c75432807e6ac3cf1ce8211c360b5ca")
+weather_res = GET(url)
+res_list <- content(weather_res, as =  "parsed")
+res_list %>% unlist() %>% t() %>% data.frame(stringsAsFactors = FALSE)
 
 
 
